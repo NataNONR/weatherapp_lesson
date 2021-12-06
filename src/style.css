@@ -29,6 +29,7 @@ li {
   border-width: 3px;
   padding: 20px;
   margin: 20px auto;
+  margin-bottom: 0px;
   border-radius: 15px;
   max-width: 600px;
 }
@@ -51,4 +52,10 @@ a {
 
 .search-form {
   margin-bottom: 20px;
+}
+
+.credit {
+  margin: 0px 260px;
+  padding: 0px;
+  font-size: 14px;
 }
