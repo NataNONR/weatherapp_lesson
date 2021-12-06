@@ -1,3 +1,36 @@
+function formatTime() {
+  let now = new Date();
+  let dayOfWeek = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let monthOfYear = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let showDay = dayOfWeek[now.getDay()];
+  let showMonth = monthOfYear[now.getMonth()];
+
+  return `${showDay}, ${now.getDate()} ${showMonth} ${now.getHours()}:${now.getMinutes()}`;
+}
+let dateLine = document.querySelector("#date");
+dateLine.innerHTML = formatTime();
+
 function showResult(response) {
   console.log(response);
   document.querySelector("#city-line").innerHTML = response.data.name;
