@@ -35,9 +35,8 @@ function showResult(response) {
   console.log(response);
   document.querySelector("#city-line").innerHTML = response.data.name;
 
-  document.querySelector("#temp").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  celsiusDegree = response.data.main.temp;
+  document.querySelector("#temp").innerHTML = Math.round(celsiusDegree);
 
   document.querySelector(
     "#humidity"
@@ -80,3 +79,32 @@ let currentButton = document.querySelector("#current-location");
 currentButton.addEventListener("click", getLocation);
 
 searchCity("Singapore");
+
+//Units
+function showFahrenheit(event) {
+  event.preventDefault();
+  let baseTemperature = document.querySelector("#temp");
+  let fahrenheitTemp = (celsiusDegree * 9) / 5 + 32;
+
+  cUnit.classList.remove("opened");
+  fUnit.classList.add("opened");
+
+  baseTemperature.innerHTML = Math.round(fahrenheitTemp);
+}
+
+function showCelsius(event) {
+  event.preventDefault();
+  let baseTemperature = document.querySelector("#temp");
+
+  cUnit.classList.add("opened");
+  fUnit.classList.remove("opened");
+
+  baseTemperature.innerHTML = Math.round(celsiusDegree);
+}
+
+let celsiusDegree = null;
+
+let fUnit = document.querySelector("#fahrenheit");
+let cUnit = document.querySelector("#celsius");
+fUnit.addEventListener("click", showFahrenheit);
+cUnit.addEventListener("click", showCelsius);
