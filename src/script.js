@@ -33,6 +33,8 @@ dateLine.innerHTML = formatTime();
 
 function showResult(response) {
   console.log(response);
+  let iconElement = document.querySelector("#icon");
+
   document.querySelector("#city-line").innerHTML = response.data.name;
 
   celsiusDegree = response.data.main.temp;
@@ -48,6 +50,12 @@ function showResult(response) {
 
   document.querySelector("#condition").innerHTML =
     response.data.weather[0].main;
+
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 function getLocation(event) {
   event.preventDefault();
