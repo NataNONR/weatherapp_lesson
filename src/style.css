@@ -39,12 +39,13 @@ li {
   font-size: 64px;
   font-weight: 400;
   line-height: 1;
+  vertical-align: middle;
 }
 
 .unit {
   color: #77ca6c;
   position: relative;
-  top: -32px;
+  top: -15px;
 }
 a {
   text-decoration: none;
