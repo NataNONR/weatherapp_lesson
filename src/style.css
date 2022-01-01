@@ -55,6 +55,11 @@ a {
   margin-bottom: 20px;
 }
 
+.weather-forecast {
+  color: #e47979;
+  text-align: center;
+}
+
 .credit {
   margin: 0px 260px;
   padding: 0px;
