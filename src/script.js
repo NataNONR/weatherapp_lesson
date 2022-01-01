@@ -140,30 +140,16 @@ currentButton.addEventListener("click", getLocation);
 searchCity("Singapore");
 
 //Units
-function showFahrenheit(event) {
-  event.preventDefault();
-  let baseTemperature = document.querySelector("#temp");
-  let fahrenheitTemp = (celsiusDegree * 9) / 5 + 32;
-
-  cUnit.classList.remove("opened");
-  fUnit.classList.add("opened");
-
-  baseTemperature.innerHTML = Math.round(fahrenheitTemp);
-}
 
 function showCelsius(event) {
   event.preventDefault();
   let baseTemperature = document.querySelector("#temp");
-
-  cUnit.classList.add("opened");
-  fUnit.classList.remove("opened");
 
   baseTemperature.innerHTML = Math.round(celsiusDegree);
 }
 
 let celsiusDegree = null;
 
-let fUnit = document.querySelector("#fahrenheit");
 let cUnit = document.querySelector("#celsius");
-fUnit.addEventListener("click", showFahrenheit);
+
 cUnit.addEventListener("click", showCelsius);
