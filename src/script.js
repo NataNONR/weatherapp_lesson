@@ -31,6 +31,33 @@ function formatTime() {
 let dateLine = document.querySelector("#date");
 dateLine.innerHTML = formatTime();
 
+function showForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastCode = `<div class="row">`;
+
+  let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI"];
+  days.forEach(function (day) {
+    forecastCode =
+      forecastCode +
+      `<div class="col-2">
+              ${day}
+              <br />
+              <img
+                src="https://openweathermap.org/img/wn/03n@2x.png"
+                alt="scattered clouds"
+                id="forecast-icon"
+                width="46"
+              />
+              <br />
+              <span class="min-max">-4° 6°</span>
+            </div>`;
+  });
+
+  forecastCode = forecastCode + `</div>`;
+  forecastElement.innerHTML = forecastCode;
+}
+
 function showResult(response) {
   console.log(response);
   let iconElement = document.querySelector("#icon");
@@ -109,6 +136,8 @@ function showCelsius(event) {
 
   baseTemperature.innerHTML = Math.round(celsiusDegree);
 }
+
+showForecast();
 
 let celsiusDegree = null;
 
