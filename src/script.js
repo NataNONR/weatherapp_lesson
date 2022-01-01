@@ -40,6 +40,7 @@ function forecastFormat(apiDay) {
 }
 
 function showForecast(response) {
+  console.log(response);
   let dailyForecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
@@ -61,9 +62,17 @@ function showForecast(response) {
                 width="46"
               />
               <br />
-              <span class="min-max">🔵${Math.round(
-                forecastDay.temp.min
-              )}° 🔴${Math.round(forecastDay.temp.max)}°</span>
+              <span class="min-max"><img
+          src="images/low therm.png"
+          alt="low thermometer"
+          id="thermometer"
+          width="8px"
+        />${Math.round(forecastDay.temp.min)}°  <img
+          src="images/high therm.png"
+          alt="high thermometer"
+          id="thermometer"
+          width="8px"
+        />${Math.round(forecastDay.temp.max)}°</span>
             </div>`;
     }
   });
@@ -149,7 +158,3 @@ function showCelsius(event) {
 }
 
 let celsiusDegree = null;
-
-let cUnit = document.querySelector("#celsius");
-
-cUnit.addEventListener("click", showCelsius);
