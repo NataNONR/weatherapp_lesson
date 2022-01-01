@@ -106,6 +106,14 @@ function showResult(response) {
     response.data.wind.speed
   )} km/h`;
 
+  document.querySelector("#min-temp").innerHTML = `Minimum: ${Math.round(
+    response.data.main.temp_min
+  )}°C`;
+
+  document.querySelector("#max-temp").innerHTML = `Maximum: ${Math.round(
+    response.data.main.temp_max
+  )}°C`;
+
   document.querySelector("#condition").innerHTML =
     response.data.weather[0].main;
 
